@@ -1,6 +1,7 @@
-Need to recreate the home html string to include classes
+<!-- Need to recreate the home html string to include classes
     > Turn each decision into a card
-    > Then create new database entry with new string
+    > Then create new database entry with new string -->
+    > Add new examples to database
 
 Add side bar for home page
     > Disclaimer (not affiliated)
