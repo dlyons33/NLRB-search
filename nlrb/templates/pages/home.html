@@ -1,4 +1,10 @@
 {% extends "base.html" %}
 {% block content %}
-{{ summary|safe }}
+<div class="container col-10 my-5 mx-auto">
+    <h1 class="my-3">Welcome!</h1>
+    <p class="my-3">This page is not affiliated with the National Labor Relations Board.</p>
+    <p class="my-3"><a href="#">Login</a> to search NLRB decisions, save interesting decisions, and view your search history.</p>
+</div>
+{% include "test.html"|safe %}
+<!-- {{ summary|safe }} -->
 {% endblock content %}
