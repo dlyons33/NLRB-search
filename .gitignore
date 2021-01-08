@@ -39,6 +39,7 @@ env
 *.sql
 *.sqlite
 *.csv
+*.sqlite3
 
 # OS generated files #
 ######################
