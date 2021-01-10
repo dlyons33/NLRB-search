@@ -1,18 +1,18 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">NLRB Updates</a>
+        <a class="navbar-brand" href="{%url 'home-page' %}">NLRB Updates</a>
         <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
             <div class="navbar-nav mb-2 mb-lg-0 ml-right">
-                <a class="nav-item nav-link" href="#">Home</a>
-                <a class="nav-item nav-link" href="#">About</a>
+                <a class="nav-item nav-link" href="{%url 'home-page' %}">Home</a>
+                <a class="nav-item nav-link" href="{%url 'about-page' %}">About</a>
             </div>
             <div class="navbar-nav mb-2 mb-lg-0 ml-auto">
                 {% if user.is_authenticated %}
-                <a class="nav-item nav-link" href="#">Profile</a>
-                <a class="nav-item nav-link" href="#">Logout</a>
+                <a class="nav-item nav-link" href="{%url 'user-profile' %}">Profile</a>
+                <a class="nav-item nav-link" href="{%url 'user-logout' %}">Logout</a>
                 {% else %}
-                <a class="nav-item nav-link" href="#">Login</a>
-                <a class="nav-item nav-link" href="#">Register</a>
+                <a class="nav-item nav-link" href="{%url 'user-login' %}">Login</a>
+                <a class="nav-item nav-link" href="{%url 'user-register' %}">Register</a>
                 {% endif %}
             </div>
         </div>

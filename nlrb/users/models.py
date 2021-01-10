@@ -27,7 +27,7 @@ class SavedCases(models.Model):
 
 class WeekSummary(models.Model):
     summary_string = models.TextField() # HTML string
-    saved_date = models.DateTimeField(auto_now_add=True)
+    week_date = models.DateField()
 
     def __str__(self):
-        return str(self.pk) + "_" + str(self.saved_date)
+        return str(self.pk) + "_" + str(self.week_date)

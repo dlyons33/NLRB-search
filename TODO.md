@@ -1,23 +1,3 @@
-<!-- Need to recreate the home html string to include classes
-    > Turn each decision into a card
-    > Then create new database entry with new string -->
-    > Add new examples to database
-
-Add side bar for home page
-    > Disclaimer (not affiliated)
-    > Quick description (log in to search decisions...)
-
-About page
-    > About site & service
-    > About maintainer (me)
-
-Add to top nav bar in {if} loop if user is_authenticated:
-    > Saved decisions
-    > Recent searches
-    > Make bootstrap drop down menu?
-    > To be populated dynamically by React call on page load?
-    > Last element is link for more than N recent
-
 Login form
 
 Login page
@@ -35,8 +15,16 @@ Profile page
     > Recent searches
     > Saved decisions
 
+Add to top nav bar in {if} loop if user is_authenticated:
+    > Saved decisions
+    > Recent searches
+    > Make bootstrap drop down menu?
+    > To be populated dynamically by React call on page load?
+    > Last element is link for more than N recent
+
 WEB API
     > Handles searches & results
     > Handles saving decisions
     > Handles logging decisions
     > Manages list of saved decisions & search history
+    > API for entering in backlog of weekly summaries programatically
