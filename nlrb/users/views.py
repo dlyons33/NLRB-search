@@ -1,8 +1,10 @@
-from django.shortcuts import render, get_object_or_404, redirect
-from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
+from django.shortcuts import render, redirect
+from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login,logout
-from django.http import HttpResponse
+from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 from .models import WeekSummary
+from .forms import UserRegistrationForm
 
 def login_view(request):
     form = AuthenticationForm(request,data=request.POST or None)
@@ -17,6 +19,7 @@ def login_view(request):
     }
     return render(request,"pages/auth.html",context=context,status=200)
 
+@login_required
 def logout_view(request):
     if request.method == "POST":
         logout(request)
@@ -29,9 +32,13 @@ def logout_view(request):
     return render(request,"pages/auth.html",context=context,status=200)
 
 def register_view(request):
-    form = UserCreationForm(request.POST or None)
+    form = UserRegistrationForm(request.POST or None)
     if form.is_valid():
-        print(form.cleaned_data)
+        username = form.cleaned_data.get('username')
+        messages.success(request,f'Account created for {username}!')
+        user = form.save(commit=True)
+        login(request,user)
+        return redirect("home-page")
     context = {
         "form":form,
         "btn_label":"Submit",
@@ -39,16 +46,23 @@ def register_view(request):
     }
     return render(request,"pages/auth.html",context=context,status=200)
 
+@login_required
 def profile_view(request):
-    return HttpResponse("This is the user's PROFILE page :)")
+    return render(request,"pages/profile.html",context={},status=200)
 
 # WILL WANT TO MOVE HOME_VIEW TO "CASES" APP
 def home_view(request):
     summary = WeekSummary.objects.order_by('-id').first()
-    context = {
-        'summary':summary.summary_string,
-    }
-    return render(request,"pages/home.html",context=context,status=200)
+    if request.user.is_authenticated:
+        context = {
+            'summary':summary.summary_string,
+        }
+        return render(request,"pages/user_home.html",context=context,status=200)
+    else:
+        context = {
+            'summary':summary.summary_string,
+        }
+        return render(request,"pages/home.html",context=context,status=200)
 
 def about_view(request):
     return render(request,"pages/about.html",context={},status=200)

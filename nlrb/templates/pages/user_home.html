@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container p-3 col-8 mx-auto mb-4">
+    <h6>Enter search terms</h6>
+    <div class="input-group">
+        <input type="text" class="form-control" placeholder="New Search">
+        <button class="btn btn-primary" type="submit">Search</button>
+    </div>
+</div>
+<div class="container row mb-5">
+    <div class="col-6">
+        <h4 class="text-center">Saved Decisions</h4>
+        <div style="height: 300px; background-color:rgba(124,161,242,0.9)">
+            Place holder
+        </div>
+    </div>
+    <div class="col-6">
+        <h4 class="text-center">Recent Searches</h4>
+        <div style="height: 300px; background-color:rgba(124,161,242,0.9)">
+            Place holder
+        </div>
+    </div>
+</div>
+<div class="container">
+    {% include "test.html"|safe %}
+    <!-- {{ summary|safe }} -->
+</div>
+{% endblock content %}
