@@ -1,0 +1,22 @@
+<!-- From home.html -->
+{% load static %}
+{% block styles %}
+    <style>
+        /* body{
+            background: url('{% static "background-law.jpg" %}') no-repeat center center fixed;
+            background-size: cover;
+        } */
+        .mybackground{
+            background: url('{% static "background-law.jpg" %}') no-repeat center center fixed;
+            background-size: cover;
+            height:100vh;
+        }
+    </style>
+{% endblock styles %}
+
+<!-- In <head> of base.html -->
+{% block styles %}
+{% endblock styles %}
+
+<!-- The mask layer in base.html -->
+<div class="mask" style="background-color: rgba(0,0,0,0.6); height: 100vh;">

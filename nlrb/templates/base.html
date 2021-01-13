@@ -9,22 +9,23 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 
     <title>NLRB Updates</title>
+
   </head>
   <body>
     <div class='container'>
-      {% include "components/navbar.html" %}
-      <div class='container py-3 border border-1'>
-        {% if messages %}
-          {% for message in messages %}
-            <div class='alert alert-{{ message.tags }}'>
-              {{ message }}
-            </div>
-          {% endfor %}
-        {% endif %}
-
-        {% block content %}
-        {% endblock content %}
-      </div>
+        {% include "components/navbar.html" %}
+        <div class='container border border-2 py-3'>
+          {% if messages %}
+            {% for message in messages %}
+              <div class='alert alert-{{ message.tags }}'>
+                {{ message }}
+              </div>
+            {% endfor %}
+          {% endif %}
+          <!-- Main Content -->
+          {% block content %}
+          {% endblock content %}
+        </div>
     </div>
 
     <!-- Optional JavaScript; choose one of the two! -->

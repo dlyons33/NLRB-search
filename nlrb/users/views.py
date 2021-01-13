@@ -66,3 +66,6 @@ def home_view(request):
 
 def about_view(request):
     return render(request,"pages/about.html",context={},status=200)
+
+def blog_view(request):
+    return render(request,"pages/blog.html",context={},status=200)
